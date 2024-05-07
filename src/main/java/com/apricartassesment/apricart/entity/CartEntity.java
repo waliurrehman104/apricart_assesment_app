@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,8 +35,12 @@ public class CartEntity {
     @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "warehouse_id")
-    private Long warehouseId;
+//    @Column(name = "warehouse_id")
+//    private Long warehouseId;
+    
+    @ManyToOne
+    @JoinColumn(name = "warehouse_id", referencedColumnName = "warehouse_id")
+    private WarehouseEntity warehouseEntity;
 }
 
 
